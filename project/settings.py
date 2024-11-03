@@ -29,7 +29,7 @@ SECRET_KEY = 'django-insecure-1jp00n$@^dt&eua0mhiz8cxznokcl5e=38s@78c@)wnr%$w#7m
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1', 'localhost', 'red1-818045704082.us-central1.run.app']
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost', 'red2-818045704082.us-central1.run.app']
 
 
 
@@ -183,7 +183,7 @@ STRIPE_PUBLISH_KEY = os.environ.get('STRIPE_PUBLISH_KEY')
 CSRF_TRUSTED_ORIGINS = [
     'http://127.0.0.1',
     'http://localhost',
-    'https://red1-818045704082.us-central1.run.app',
+    'https://red2-818045704082.us-central1.run.app',
 ]
 # https://red1-818045704082.us-central1.run.app
 CSRF_COOKIE_SECURE = True

@@ -16,4 +16,3 @@ stripe==8.8.0
 typing_extensions==4.9.0
 tzdata==2023.3
 urllib3==2.1.0
-cloud-sql-python-connector @ git+https://github.com/GoogleCloudPlatform/cloud-sql-python-connector.git@ef7d8fe242a41e51c7da5d9280754ad98b2daaab

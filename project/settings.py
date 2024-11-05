@@ -91,10 +91,10 @@ WSGI_APPLICATION = 'project.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'fiverr',
+        'NAME': 'short',
         'USER': 'admin',
         'PASSWORD': 'admin', 
-        'HOST': '34.134.97.57',
+        'HOST': '34.122.87.114',
         'PORT': '5432',
         
     }

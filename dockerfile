@@ -14,7 +14,9 @@ WORKDIR /app
 COPY . .
 
 # Install Python dependencies from requirements.txt
+RUN pip install "cloud-sql-python-connector[pg8000]"
 RUN pip install --no-cache-dir -r requirements.txt
+
 
 # Set Django settings for production
 ENV DJANGO_SETTINGS_MODULE=project.settings
@@ -28,3 +30,7 @@ EXPOSE 8080
 
 # Run the Django application with Gunicorn
 CMD ["gunicorn", "--bind", "0.0.0.0:8080", "project.wsgi:application"]
+
+
+
+

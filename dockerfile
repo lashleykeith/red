@@ -11,7 +11,7 @@ RUN apt-get update && apt-get install -y libpq-dev python3-dev
 WORKDIR /app
 
 # Copy the Google Cloud Storage credentials file
-COPY gcs_credentials.json /app/gcs_credentials.json
+COPY purplemarket-3c5ad1711007.json /app/purplemarket-3c5ad1711007.json
 
 
 # Copy the application code
@@ -20,7 +20,6 @@ COPY . .
 # Install Python dependencies from requirements.txt
 RUN pip install "cloud-sql-python-connector[pg8000]"
 RUN pip install --no-cache-dir -r requirements.txt
-
 
 
 # Set Django settings for production

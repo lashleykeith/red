@@ -10,12 +10,17 @@ RUN apt-get update && apt-get install -y libpq-dev python3-dev
 # Set the working directory
 WORKDIR /app
 
+# Copy the Google Cloud Storage credentials file
+COPY gcs_credentials.json /app/gcs_credentials.json
+
+
 # Copy the application code
 COPY . .
 
 # Install Python dependencies from requirements.txt
 RUN pip install "cloud-sql-python-connector[pg8000]"
 RUN pip install --no-cache-dir -r requirements.txt
+
 
 
 # Set Django settings for production
@@ -25,7 +30,7 @@ ENV DJANGO_SETTINGS_MODULE=project.settings
 RUN mkdir -p /app/static && chmod 755 /app/static
 RUN python manage.py collectstatic --noinput
 
-# Expose port for the application
+# Expose port for these application
 EXPOSE 8080
 
 # Run the Django application with Gunicorn

@@ -13,6 +13,7 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 from pathlib import Path
 from dotenv import load_dotenv
 import os
+from google.oauth2 import service_account
 
 load_dotenv()
 
@@ -149,6 +150,15 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
 
 MEDIA_URL = 'media/'
 MEDIA_ROOT = BASE_DIR / 'media'
+
+# Media files configuration for Google Cloud Storage
+if os.getenv("GS_BUCKET_NAME"):
+    DEFAULT_FILE_STORAGE = "storages.backends.gcloud.GoogleCloudStorage"
+    GS_BUCKET_NAME = os.getenv("GS_BUCKET_NAME")
+    GS_CREDENTIALS = service_account.Credentials.from_service_account_file(
+        os.getenv("GS_CREDENTIALS_FILE_PATH")
+    )
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
